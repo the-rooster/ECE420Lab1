@@ -1,7 +1,7 @@
 CC=gcc
 
 target: main.o lab1_IO.o
-	gcc main.o lab1_IO.o -o main -lm
+	gcc -pthread main.o lab1_IO.o -o main -lm
 
 serialtester: lab1_IO.o serialtester.o
 	gcc serialtester.o lab1_IO.o -o serialtester -lm
