@@ -2,6 +2,7 @@
 #include "timer.h"
 #include <pthread.h>
 #include <math.h>
+#include <stdlib.h>
 
 struct arg_struct {
     int ***A;
@@ -27,7 +28,7 @@ int dot_prod(int ***A, int ***B,int i,int j,int* size){
 
 void *calc_partial_matrix(void * args_void){
     struct arg_struct* args = (struct arg_struct*) args_void;
-
+    
     for(int i=args->i_l;i<=args->i_u;i++){
         for(int j=args->j_l;j<=args->j_u;j++){
             (*args->C)[i][j] = dot_prod(args->A,args->B,i,j,args->n);
